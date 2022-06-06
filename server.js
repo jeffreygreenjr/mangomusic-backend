@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 });
 
 // ROUTE FOR RETRIEVING MUSIC
-app.get("/mangomusic", (req, res) => {
+app.get("/music", (req, res) => {
     // send music via JSON
     res.json(music)
 });
