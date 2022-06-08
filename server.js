@@ -1,6 +1,7 @@
 // IMPORT DEPENDENCIES
 const express = require('express');
 const cors = require('cors');
+const fetch = require('node-fetch')
 
 // IMPORT JSON FILES
 const music = require('./music.json');
@@ -12,8 +13,10 @@ const app = express();
 app.use(cors());
 
 // HOME ROUTE FOR TESTING OUR APP
-app.get("/", (req, res) => {
-    res.send("Hello World!")
+app.get("/", async (req, res) => {
+    const response = await fetch("https://itunes.apple.com/search?term=flume")
+    const data = await response.json()
+    res.send(data)
 });
 
 // ROUTE FOR RETRIEVING MUSIC
